@@ -6,18 +6,13 @@ namespace ConsoleApp {
             Console.WriteLine("Hello World!");
         }
         public bool IsLeapYear(int year) {
-            return ((IsDivisibleByFour(year) && !IsDivisibleByOneHundred(year)) || IsDivisibleByFourHundred(year));
+            if (year < 1582)
+                throw new ArgumentOutOfRangeException();
+            return ((IsDivisibleBy(4, year) && !IsDivisibleBy(100, year)) || IsDivisibleBy(400, year));
         }
 
-        public bool IsDivisibleByFour(int num) {
-            return (num % 4) == 0;
-        }
-        public bool IsDivisibleByOneHundred(int num) {
-            return (num % 100) == 0;
-        }
-
-        public bool IsDivisibleByFourHundred(int num) {
-            return (num % 400) == 0;
+        private bool IsDivisibleBy(int divisor, int num) {
+            return (num % divisor) == 0;
         }
     }
 }
