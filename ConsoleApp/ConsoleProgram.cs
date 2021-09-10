@@ -17,7 +17,7 @@ namespace ConsoleApp {
                 throw new ArgumentOutOfRangeException();
             return ((IsDivisibleBy(4, year) && !IsDivisibleBy(100, year)) || IsDivisibleBy(400, year));
         }
-
+ 
         private static bool IsDivisibleBy(int divisor, int num) {
             return (num % divisor) == 0;
         }
